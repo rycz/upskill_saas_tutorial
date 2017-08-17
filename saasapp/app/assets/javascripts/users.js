@@ -21,11 +21,6 @@ $(document).on('turbolinks:load', function(){
         expMonth = $('#card_month').val(),
         expYear = $('#card_year').val();
         
-    console.log(ccNum);
-    console.log(cvcNum);
-    console.log(expMonth);
-    console.log(expYear);
-        
     // Use Stripe JS library to check for card errors.
     var error = false;
     
@@ -67,8 +62,7 @@ $(document).on('turbolinks:load', function(){
   function stripeResponseHandler(status, response) {
     // Get the token from the response.
     var token = response.id;
-console.log(response);
-console.log(response.error);
+
     // Inject card token as hidden field into form.
     theForm.append( $('<input type="hidden" name="user[stripe_card_token]">').val(token) );
     
